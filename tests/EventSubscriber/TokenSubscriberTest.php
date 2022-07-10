@@ -8,6 +8,7 @@ use App\Controller\ExampleController;
 use App\EventSubscriber\TokenSubscriber;
 use App\Service\LoginService;
 use App\Tests\Helper\RequestHelper;
+use Exception;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -19,6 +20,7 @@ class TokenSubscriberTest extends TestCase
     /**
      * Dieser Test prüft, ob bei keiner Angabe eines JWT's eine
      * Exception geworfen wird (Teil im TokenSubscriber Zeile 42)
+     * @throws Exception
      */
     public function testExpectExceptionOnInvalidToken(): void
     {
@@ -73,6 +75,7 @@ class TokenSubscriberTest extends TestCase
     /**
      * Dieser Test prüft ob das Event Request aus dem Header einen Token
      * korrekt zurückgibt.
+     * @throws Exception
      */
     public function testRequestAttributesExists(): void
     {
